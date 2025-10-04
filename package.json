@@ -1,0 +1,34 @@
+{
+  "name": "drtrips-weather-mcp",
+  "version": "1.0.0",
+  "description": "MCP server for OpenWeather API integration",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "drtrips-weather-mcp": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "start": "node dist/index.js",
+    "dev": "tsx src/index.ts",
+    "prepare": "npm run build",
+    "link:local": "npm link",
+    "test:npx": "npx drtrips-weather-mcp"
+  },
+  "keywords": ["mcp", "weather", "openweather", "drtrips"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.4",
+    "axios": "^1.7.9",
+    "dotenv": "^16.4.7",
+    "zod": "^3.24.1",
+    "zod-to-json-schema": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.5",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3"
+  }
+}
