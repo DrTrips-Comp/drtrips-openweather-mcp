@@ -10,16 +10,6 @@ TypeScript-based MCP (Model Context Protocol) server providing weather data thro
 - 🌡️ **Multiple Units** - Support for metric, imperial, and Kelvin units
 - 🔧 **MCP Protocol** - Compatible with Claude Desktop and other MCP clients
 
-## Installation
-
-```bash
-# Install dependencies
-npm install
-
-# Build the project
-npm run build
-```
-
 ## Configuration
 
 1. Copy `.env.example` to `.env`:
@@ -36,49 +26,9 @@ Get your API key from: https://openweathermap.org/api
 
 ## Usage
 
-### Run Locally
-
-```bash
-# Development mode
-npm run dev
-
-# Production mode
-npm start
-```
-
-### Run with NPX
-
-```bash
-# Install and build
-npm install
-npm run build
-
-# Link globally (one-time setup)
-npm link
-
-# Run with npx
-npx drtrips-weather-mcp
-```
-
 ### Configure with Claude Desktop
 
 Add to your Claude Desktop configuration (`claude_desktop_config.json`):
-
-```json
-{
-  "mcpServers": {
-    "drtrips-weather": {
-      "command": "node",
-      "args": ["path/to/weather_mcp/dist/index.js"],
-      "env": {
-        "WEATHER_API_KEY": "your_api_key"
-      }
-    }
-  }
-}
-```
-
-Or with npx (after running `npm link`):
 
 ```json
 {
@@ -93,6 +43,7 @@ Or with npx (after running `npm link`):
   }
 }
 ```
+
 
 ## Available Tools
 
@@ -124,45 +75,6 @@ Get weather data for a specific location and date.
 - Precipitation
 - Wind speed and direction
 
-## Development
-
-```bash
-# Watch mode (auto-rebuild on changes)
-npm run watch
-
-# Development with tsx
-npm run dev
-```
-
-## Project Structure
-
-```
-weather_mcp/
-├── src/
-│   ├── config/
-│   │   └── settings.ts          # Environment configuration
-│   ├── models/
-│   │   └── weather-models.ts    # Zod schemas and types
-│   ├── services/
-│   │   └── weather-api.ts       # OpenWeather API client
-│   ├── server.ts                # MCP server setup
-│   └── index.ts                 # Entry point (stdio transport)
-├── dist/                        # Compiled JavaScript
-├── package.json
-├── tsconfig.json
-└── .env.example
-```
-
-## Migration from Python
-
-This project was migrated from a Python-based MCP server to TypeScript. Key changes:
-
-- **Pydantic → Zod**: Input validation using Zod schemas
-- **aiohttp → axios**: HTTP client for API requests
-- **Python MCP SDK → TypeScript MCP SDK**: Using `@modelcontextprotocol/sdk`
-- **stdio transport**: Compatible with Claude Desktop
-
-See `docs/MIGRATION_GUIDE_PYTHON_TO_TYPESCRIPT.md` for detailed migration guide.
 
 ## License
 
