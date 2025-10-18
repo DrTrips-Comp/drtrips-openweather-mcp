@@ -1,11 +1,11 @@
 {
-  "name": "drtrips-weather-mcp",
-  "version": "1.0.0",
+  "name": "drtrips-openweather-mcp-server",
+  "version": "1.0.1",
   "description": "MCP server for OpenWeather API integration",
   "type": "module",
   "main": "dist/index.js",
   "bin": {
-    "drtrips-weather-mcp": "dist/index.js"
+    "drtrips-openweather-mcp-server": "dist/index.js"
   },
   "scripts": {
     "build": "tsc",
@@ -18,13 +18,32 @@
   },
   "keywords": [
     "mcp",
+    "model-context-protocol",
     "weather",
     "openweather",
-    "drtrips"
+    "openweathermap",
+    "claude",
+    "ai",
+    "llm",
+    "drtrips",
+    "typescript"
   ],
-  "author": "",
+  "author": "DrTrips",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/drtrips/drtrips-openweather-mcp.git"
+  },
+  "homepage": "https://github.com/drtrips/drtrips-openweather-mcp#readme",
+  "bugs": {
+    "url": "https://github.com/drtrips/drtrips-openweather-mcp/issues"
+  },
   "mcpName": "io.github.drtrips-comp/drtrips-openweather-mcp",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.0.4",
     "axios": "^1.7.9",

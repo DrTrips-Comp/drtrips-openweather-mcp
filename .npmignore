@@ -1,0 +1,43 @@
+# Source files (only ship compiled dist/)
+src/
+*.ts
+!*.d.ts
+tsconfig.json
+
+# Tests and development
+test-*.js
+test-*.ts
+*.test.js
+*.test.ts
+*.spec.js
+*.spec.ts
+evaluations/
+eval/
+
+# Development tools
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Git and CI
+.git/
+.github/
+.gitignore
+
+# MCP development files
+.mcp.json
+CLAUDE.md
+.claude
+
+# Environment
+.env
+.env.*
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db

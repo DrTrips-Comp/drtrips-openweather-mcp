@@ -34,5 +34,17 @@ venv/
 env/
 
 .mcp.json
-CLAUDE.md 
+CLAUDE.md
 .claude
+
+# Testing and development files
+test-*.js
+test-*.ts
+*.test.js
+*.test.ts
+*.spec.js
+*.spec.ts
+
+# Evaluation files (not for production)
+evaluations/
+eval/

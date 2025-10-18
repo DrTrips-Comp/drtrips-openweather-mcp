@@ -1,0 +1,63 @@
+name: CI
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18, 20, 22]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run TypeScript compiler
+        run: npm run build
+
+      - name: Check for type errors
+        run: npx tsc --noEmit
+
+      - name: Verify build output
+        run: |
+          if [ ! -f "dist/index.js" ]; then
+            echo "❌ Error: dist/index.js not found"
+            exit 1
+          fi
+          if [ ! -f "dist/server.js" ]; then
+            echo "❌ Error: dist/server.js not found"
+            exit 1
+          fi
+          echo "✅ Build verification passed"
+
+      - name: Run tests
+        run: |
+          if [ -f "test-tool.js" ]; then
+            node test-tool.js
+          else
+            echo "⚠️ No test file found, skipping tests"
+          fi
+
+      - name: Check shebang
+        run: |
+          if head -1 dist/index.js | grep -q "^#!/usr/bin/env node"; then
+            echo "✅ Shebang is correct"
+          else
+            echo "❌ Shebang missing or incorrect"
+            exit 1
+          fi
